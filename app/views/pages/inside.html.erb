@@ -1,3 +1,35 @@
-<h1>Protected Page</h1>
-<p>This page is only visible to signed in users. Edit it at: <em>views/pages/inside</em></p>
-<p>You can change the page users see after successfully signing in within the method <em>after_sign_in_path_for</em> inside <strong>application_controller.rb</strong></p>
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; height :600px; }
+</style>
+</head>
+<body>
+<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-heat/v0.1.0/leaflet-heat.js'></script>
+<div id='map'></div>
+
+<script>
+var map = L.mapbox.map('map', 'examples.map-20v6611k'),
+    // the maxZoom states which zoom the markers are fully opaque at -
+    // in this case, there are few markers far apart, so we set it low.
+    heat = L.heatLayer([], { maxZoom: 12 }).addTo(map);
+
+// We're just using a featureLayer to pull marker data from Mapbox -
+// this is not added to the map.
+var layer = L.mapbox.featureLayer('examples.map-zr0njcqy').on('ready', function() {
+    // zoom the map to the bounds of the markers
+    map.fitBounds(layer.getBounds());
+    // add each marker point to the heatmap
+    layer.eachLayer(function(l) {
+        heat.addLatLng(l.getLatLng());
+    });
+});
+</script>
+</body>
+
+
+
+
+
+
+
+
