@@ -1,16 +1,11 @@
-# Generated with RailsBricks
-# Initial seed file to use with Devise User Model
-
-# Temporary admin account
 u = User.new(
-    username: "admin",
-    email: "admin@example.com",
-    password: "1234",
-    password_confirmation: "1234",
+  username: "rodmal",
+  email: "rodmal13@gmail.com",
+  password: "Admin1234",
+  password_confirmation: "Admin1234",
     admin: true
 )
 u.skip_confirmation!
 u.save!
-
 
 

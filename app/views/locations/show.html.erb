@@ -12,11 +12,27 @@
   <strong>Longitude:</strong>
   <%= @location.longitude %>
 </p>
+
+<style>
+  body { margin:0; padding:0;}
+  #map { position:absolute; top:200px;  bottom:0; width:350px;  }
+</style>
+
+<body>
+<div id='map' style="height:350px;"></div>
+<script>
+var map = L.mapbox.map('map', 'examples.map-9ijuk24y')
+    .setView([<%= @location.latitude %>,<%= @location.longitude %>], 15);
+</script>
+</body>
 <h3>Nearby Locations</h3>
 <ul>
 <% for location in @location.nearbys(10) %>
     <li><%= link_to location.address, location %>(<%= location.distance.round(2) %> miles)</li>
 <% end%>
+  
+  
+  
 </ul>
 <p>
   <%= link_to "Edit", edit_location_path(@location) %> |
