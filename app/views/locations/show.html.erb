@@ -24,7 +24,7 @@
 var map = L.mapbox.map('map', 'examples.map-9ijuk24y')
     .setView([<%= @location.latitude %>,<%= @location.longitude %>], 15);
 
-
+L.marker([<%= @location.latitude %>,<%= @location.longitude %>]).addTo(map);
     
     
 </script>
