@@ -1,7 +1,7 @@
 <% title "Location" %>
 
 <p>
-  <strong>Address:</strong>
+  <strong>Report description:</strong>
   <%= @location.address %>
 </p>
 <p>
@@ -29,7 +29,7 @@ L.marker([<%= @location.latitude %>,<%= @location.longitude %>]).addTo(map);
     
 </script>
 </body>
-<h3>Nearby Locations</h3>
+<h3>Nearby reports</h3>
 <ul>
 <% for location in @location.nearbys(10) %>
     <li><%= link_to location.address, location %>(<%= location.distance.round(2) %> miles)</li>

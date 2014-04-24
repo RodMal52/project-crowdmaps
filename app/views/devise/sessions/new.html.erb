@@ -1,25 +1,26 @@
 <div class="row">
+  <div class="imagebckgd"></div>
   <div class="col-sm-6 ">
-    <h1>Sign in</h1>
-
+    <h1 class="title">Project Crowdmaps</h1>
+  <h2 class="subtitle">Sign In</h2>
     <%= form_for(resource, :as => resource_name, 
     :url => session_path(resource_name),
     role: "form") do |f| %>
   
       <div class="form-group">
-        <%= f.label :username %>
+        <%= f.label :username, :class => "label1" %>
         <div class="row">
           <div class="col-sm-6">
-            <%= f.text_field :username, :autofocus => true, class: "form-control" %>  
+            <%= f.text_field :username, :autofocus => true, class: "form-control", :class => "fill1" %>  
           </div>
         </div>
       </div>
       
       <div class="form-group">
-        <%= f.label :password %>
+        <%= f.label :password, :class => "label2" %>
         <div class="row">
           <div class="col-sm-6">
-            <%= f.password_field :password, class: "form-control" %>
+            <%= f.password_field :password, class: "form-control", :class => "fill2" %>
           </div>
         </div>
       </div>
@@ -34,12 +35,12 @@
 
       <div class="row">
         <div class="col-sm-6">
-          <%= f.submit "Sign in", class: "btn btn-primary" %>
+            <div class="botonsign"><%= f.submit "Sign in", class: "btn btn-primary" %></div>
         </div>
       </div>
       <% end %>
 
-      <%= render "devise/shared/links" %>
+<div class="links"> <%= render "devise/shared/links" %> </div>
 
     </div>
   </div>

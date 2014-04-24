@@ -4,7 +4,7 @@ ProjectCrowdmaps::Application.routes.draw do
   root to: "devise/sessions#new"
 end    
   get "home", to: "pages#home", as: "home"
-  get "inside", to: "pages#inside", as: "inside"
+  get "inside", to: "locations#inside", as: "inside"
   
     
   devise_for :users

@@ -27,12 +27,11 @@
 
   <div id='map' style = 'height:600px'></div>
   
-  <% @marker = Location.new %>
-  <%= form_for @marker do |f| %>
-  <%= f.hidden_field :address, :id => "address"  %>
+  
+  <%= form_for @location,:html => {:id => "idFormLocation"} do |f| %>
+    <%= f.hidden_field :address, :id => "address"  %>
     <%= f.hidden_field :latitude , :id => "idLat" %>
     <%= f.hidden_field :longitude, :id => "idLng" %>
-  <p stlye="left: -100px"><%= f.submit %></p>
 <% end %>
   
   
@@ -47,7 +46,7 @@
     	
     	map.addControl(L.control.locate({
   		  locateOptions: {
-  		  	maxZoom: 16
+  		  	maxZoom: 20
 
   		}}));
   	
@@ -65,26 +64,21 @@
   			markerPuesto = true;
   			marker = L.marker(e.latlng, {draggable: true}).addTo(map);
         
-        $("#idLat").value=(marker.getLatLng().lat);
-        $("#idLng").value=(marker.getLatLng().lng);
-        
-  			marker.bindPopup('<button id="reportButton">Reportar</button>').openPopup();
+        marker.bindPopup('<textarea id="textMarker" rows="4" cols="50"></textarea><button id="reportButton">Reportar</button>').openPopup();
   		}
   	}
   	
-  	function sendData(){
-  		// Initialize packed or we get the word 'undefined'
-  		var packed = "";
-  		packed += marker.getLatLng().lat + "," + marker.getLatLng().lng;
-  		
-  		window.location = "http://www.facebook.com?" + packed;
-  	}
+  	
 
   	map.on('click', onMapClick);
   	
   $('#map').on('click', '#reportButton', function(){
-  			alert("Longitud: " + marker.getLatLng().lat + "\nLongitud: " + marker.getLatLng().lng);
+    //alert("Longitud: " + marker.getLatLng().lat + "\nLongitud: " + marker.getLatLng().lng);
+    $("#idLat").val(marker.getLatLng().lat);
+    $("#idLng").val(marker.getLatLng().lng);
+    $("#address").val($('#textMarker').val());
     
+    $('#idFormLocation').submit();
       
       
   	});
@@ -93,7 +87,7 @@
   <% @locations = Location.all %>
   <% @locations.each do |location| %>
     <script>
-      L.marker([<%= location.latitude %>,<%= location.longitude %>]).addTo(map);
+      L.marker([<%= location.latitude %>,<%= location.longitude %>], {opacity: 0.5}).addTo(map);
     </script>
     <% end %>
   

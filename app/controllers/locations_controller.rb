@@ -16,6 +16,11 @@ end
     @location = Location.new
     
   end
+  
+  def inside
+    @location = Location.new
+    
+  end
 
   def create
     @location = Location.new(location_params)
