@@ -29,10 +29,13 @@ end
   def create
     
     @location = Location.new(location_params)
-    
+    temp = ""
     if @location.save
-      @location.hashtag = @location.hashtags.first.name
-      @location.save
+        @location.hashtags.each do |hashtag|
+          temp= temp+", #"+hashtag.name
+        end       
+      @location.hashtag = temp
+    @location.save
       redirect_to @location, :notice => "Successfully created location."
     else
       render :action => 'new'

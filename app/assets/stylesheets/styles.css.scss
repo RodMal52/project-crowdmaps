@@ -1,0 +1,404 @@
+.imagebackground {
+  background-image: url("fondo1360.jpg");
+  background-size: 1360px, 768px;
+  background-repeat: repeat;	
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.remember{
+  color: rgb(152, 217, 233);
+}
+
+.form-control{
+  color: black;
+}
+
+#row_map{
+  background-color:white;
+  z-index: -1;
+}
+
+#row_container	{
+  min-height: 481px;
+  color: #98d9e9;
+}
+
+#links_container{
+  top: 400.014px;
+  z-index: 0;
+}
+
+table, td, th, tr
+{
+  border:1px solid black;
+}
+
+td {
+  background-color: black;
+}
+
+th {
+  background-color:black;
+  color:black;
+}
+
+#map{
+  margin-top: 2%;
+  margin-bottom: 1%; 
+  min-height: 455px;
+}
+
+#message{
+  position: absolute;
+  z-index: 1;
+  top: 55px;
+}
+
+#navbar{
+  padding-left: 0;
+  padding-right: 0;
+  color: rgb(152, 217, 233);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: rgb(152, 217, 233);
+}
+
+.btn .btn-primary{
+  background-color: #98d9e9;
+}
+
+.title {
+  color: rgb(152, 217, 233);
+  text-align: justify;	
+  position: absolute;
+  top: 24.014px;
+  z-index: 0;
+}
+
+.subtitle {
+  color: rgb(152, 217, 233);
+  text-align: justify;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  line-height:85px;
+  top: 89.014px;
+  z-index: 0;
+}
+
+.label1 {
+  color: rgb(152, 217, 233);
+  text-align: justify;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  top: 184.014px;
+  z-index: 0;
+}
+
+.label2 {
+  color: rgb(152, 217, 233);
+  text-align: justify;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  top: 264.014px;
+  z-index: 0;
+}
+
+.checkbox {
+  position: absolute;
+  top: 320.014px;
+  z-index: 0;
+}
+
+.botonsign {
+  position: absolute;
+  top: 260.014px;
+  z-index: 0;
+}
+
+.links {
+  position: absolute;
+  top: 400.014px;
+  z-index: 0;
+}
+
+@media only screen and (min-device-width : 1024px) and (min-device-width : 1024px) and (max-device-width : 1360px) and (min-device-height : 768px) and (max-device-height : 768px){
+  
+.imagebackground {
+  background-image: url("fondo1024.jpg");
+  background-size: 1024px, 768px;
+  background-repeat: repeat;	
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.remember{
+  color: rgb(152, 217, 233);
+}
+
+.form-control{
+  color: black;
+}
+
+#row_map{
+  background-color:white;
+  z-index: -1;
+}
+
+#row_container	{
+  min-height: 481px;
+  color: #98d9e9;
+}
+
+#links_container{
+  top: 400.014px;
+  z-index: 0;
+}
+
+table, td, th, tr
+{
+  border:1px solid black;
+}
+
+td {
+  background-color: black;
+}
+
+th {
+  background-color:black;
+  color:black;
+}
+
+#map{
+  margin-top: 2%;
+  margin-bottom: 1%; 
+  min-height: 455px;
+}
+
+#message{
+  position: absolute;
+  z-index: 1;
+  top: 55px;
+}
+
+#navbar{
+  padding-left: 0;
+  padding-right: 0;
+  color: rgb(152, 217, 233);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: rgb(152, 217, 233);
+}
+
+.btn .btn-primary{
+  background-color: #98d9e9;
+}
+
+.title {
+  color: rgb(152, 217, 233);
+  text-align: justify;	
+  position: absolute;
+  top: 24.014px;
+  z-index: 0;
+}
+
+.subtitle {
+  color: rgb(152, 217, 233);
+  text-align: justify;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  line-height:85px;
+  top: 89.014px;
+  z-index: 0;
+}
+
+.label1 {
+  color: rgb(152, 217, 233);
+  text-align: justify;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  top: 184.014px;
+  z-index: 0;
+}
+
+.label2 {
+  color: rgb(152, 217, 233);
+  text-align: justify;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  top: 264.014px;
+  z-index: 0;
+}
+
+.checkbox {
+  position: absolute;
+  top: 320.014px;
+  z-index: 0;
+}
+
+.botonsign {
+  position: absolute;
+  top: 260.014px;
+  z-index: 0;
+}
+
+.links {
+  position: absolute;
+  top: 400.014px;
+  z-index: 0;
+}
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+
+.imagebackground {
+  background-image: url("fondo320.jpg");
+  background-size: 320px, 480px;
+  background-repeat: repeat;	
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.remember{
+  color: rgb(152, 217, 233);
+}
+
+.form-control{
+  color: black;
+}
+
+#row_map{
+  background-color:white;
+  z-index: -1;
+}
+
+#row_container	{
+  min-height: 481px;
+  color: #98d9e9;
+}
+
+#links_container{
+  top: 400.014px;
+  z-index: 0;
+}
+
+table, td, th, tr
+{
+  border:1px solid black;
+}
+
+td {
+  background-color: black;
+}
+
+th {
+  background-color:black;
+  color:black;
+}
+
+#map{
+  margin-top: 2%;
+  margin-bottom: 1%; 
+  min-height: 455px;
+}
+
+#message{
+  position: absolute;
+  z-index: 1;
+  top: 55px;
+}
+
+#navbar{
+  padding-left: 0;
+  padding-right: 0;
+  color: rgb(152, 217, 233);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: rgb(152, 217, 233);
+}
+
+.btn .btn-primary{
+  background-color: #98d9e9;
+}
+
+.title {
+  color: rgb(152, 217, 233);
+  text-align: justify;	
+  position: absolute;
+  top: 24.014px;
+  z-index: 0;
+}
+
+.subtitle {
+  color: rgb(152, 217, 233);
+  text-align: justify;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  line-height:85px;
+  top: 89.014px;
+  z-index: 0;
+}
+
+.label1 {
+  color: rgb(152, 217, 233);
+  text-align: justify;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  top: 184.014px;
+  z-index: 0;
+}
+
+.label2 {
+  color: rgb(152, 217, 233);
+  text-align: justify;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  top: 264.014px;
+  z-index: 0;
+}
+
+.checkbox {
+  position: absolute;
+  top: 320.014px;
+  z-index: 0;
+}
+
+.botonsign {
+  position: absolute;
+  top: 260.014px;
+  z-index: 0;
+}
+
+.links {
+  position: absolute;
+  top: 400.014px;
+  z-index: 0;
+}
+}

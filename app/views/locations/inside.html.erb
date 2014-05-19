@@ -1,16 +1,13 @@
-<style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
+<div class="row">
+  <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js'></script>
 
-<body>
-<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js'></script>
-<link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css' rel='stylesheet' />
-<!--[if lt IE 9]>
-  <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
-<![endif]-->
+  <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css' rel='stylesheet' />
 
-<style type="text/css">
+  <!--[if lt IE 9]>
+    <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
+  <![endif]-->
+
+  <style type="text/css">
     .leaflet-control-locate {
         border: 1px solid rgba(0,0,0,0.4);
     }
@@ -23,9 +20,15 @@
     .leaflet-control-locate.active a {
         background-position: -33px -2px;
     }
-</style>
-
-  <div id='map' style = 'height:600px'></div>
+  </style>
+  <%= form_tag inside_path, method: 'get', html: {role: "form"} do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil, class: "btn btn-sm btn-primary" %>
+    <%= link_to "All", hashtags_path, {class: "btn btn-sm btn-link"} %>
+  </p>
+<% end %>
+  <div id='map'></div>
   
   
   <%= form_for @location,:html => {:id => "idFormLocation"} do |f| %>
@@ -60,14 +63,16 @@
   		L.marker(e.latlng).addTo(map);       
   	}*/
 
-  	function onMapClick(e) {
-  		if(!markerPuesto){
-  			markerPuesto = true;
-  			marker = L.marker(e.latlng, {draggable: true}).addTo(map);
+  function onMapClick(e) {
+  	  
+      if(!markerPuesto){
+        markerPuesto = true;
+        marker = L.marker(e.latlng, {draggable: true}).addTo(map);
         
-        marker.bindPopup('<textarea id="textMarker" rows="4" cols="50"></textarea><button id="reportButton">Reportar</button>').openPopup();
-  		}
-  	}
+        marker.bindPopup('<center><textarea id="textMarker" rows="4" cols="35"></textarea><p></p><button id="reportButton" class="btn btn-primary">Reportar</button></center>').openPopup();
+      }
+    
+    }
   	
   	
 
@@ -92,5 +97,4 @@
     </script>
     <% end %>
   
-  
-</body>
+</div>

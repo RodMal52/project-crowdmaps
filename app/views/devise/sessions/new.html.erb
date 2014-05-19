@@ -1,46 +1,46 @@
 <div class="row">
-  <div class="imagebckgd"></div>
-  <div class="col-sm-6 ">
+
+  <div class="col-sm-12">
     <h1 class="title">Project Crowdmaps</h1>
-  <h2 class="subtitle">Sign In</h2>
+    <h2 class="subtitle">Sign In</h2>
     <%= form_for(resource, :as => resource_name, 
     :url => session_path(resource_name),
     role: "form") do |f| %>
   
-      <div class="form-group">
-        <%= f.label :username, :class => "label1" %>
-        <div class="row">
-          <div class="col-sm-6">
-            <%= f.text_field :username, :autofocus => true, class: "form-control", :class => "fill1" %>  
-          </div>
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :password, :class => "label2" %>
-        <div class="row">
-          <div class="col-sm-6">
-            <%= f.password_field :password, class: "form-control", :class => "fill2" %>
-          </div>
-        </div>
-      </div>
-  
-      
-
-      <% if devise_mapping.rememberable? -%>
-      <div class="checkbox">
-        <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-      </div>
-      <% end -%>
-
+    <div class="form-group">
+      <%= f.label :username, :class => "label1" %>
       <div class="row">
-        <div class="col-sm-6">
-            <div class="botonsign"><%= f.submit "Sign in", class: "btn btn-primary" %></div>
+        <div class="col-sm-6" style="top: 206.014px; z-index: 0;">
+          <%= f.text_field :username, :autofocus => true, class: "form-control"%>  
         </div>
       </div>
-      <% end %>
-
-<div class="links"> <%= render "devise/shared/links" %> </div>
-
     </div>
+    
+    <div class="form-group">
+      <%= f.label :password, :class => "label2" %>
+      <div class="row">
+        <div class="col-sm-6" style="top: 234.014px; z-index: 0;">
+          <%= f.password_field :password, class: "form-control"%>
+        </div>
+      </div>
+    </div>    
+
+    <% if devise_mapping.rememberable? -%>
+    <div class="checkbox">
+      <%= f.check_box :remember_me%> <%= f.label :remember_me, :class => "remember" %>
+    </div>
+    <% end -%>
+
+    <div class="row">
+      <div class="col-sm-6">
+          <div class="botonsign"><%= f.submit "Sign in", class: "btn btn-primary" %></div>
+      </div>
+    </div>
+      
+    <div class="links" id="links_container"> <%= render "devise/shared/links" %> </div>
+      
+    <% end %>
+
   </div>
+
+</div>
