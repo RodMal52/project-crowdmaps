@@ -1,0 +1,2 @@
+WARNING: `heroku rake` has been deprecated. Please use `heroku run rake` instead.
+Running `rake db` attached to terminal... up, run.8545
