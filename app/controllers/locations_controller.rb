@@ -36,7 +36,7 @@ end
         end       
       @location.hashtag = temp
     @location.save
-      redirect_to @location, :notice => "Successfully created location."
+      redirect_to inside_path, :notice => "Successfully created report."
     else
       render :action => 'new'
     end
@@ -49,7 +49,7 @@ end
   def update
     @location = Location.find(params[:id])
     if @location.update_attributes(params[:location])
-      redirect_to @location, :notice  => "Successfully updated location."
+      redirect_to inside_path, :notice  => "Successfully updated report."
     else
       render :action => 'edit'
     end

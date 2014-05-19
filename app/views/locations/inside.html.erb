@@ -1,6 +1,7 @@
 <div class="row">
   <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js'></script>
 
+
   <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css' rel='stylesheet' />
 
   <!--[if lt IE 9]>
@@ -22,12 +23,9 @@
     }
   </style>
   <%= form_tag inside_path, method: 'get', html: {role: "form"} do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil, class: "btn btn-sm btn-primary" %>
-    <%= link_to "All", hashtags_path, {class: "btn btn-sm btn-link"} %>
-  </p>
-<% end %>
+      <%= text_field_tag :searchTerm, params[:searchTerm] %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-sm btn-primary" %>
+    <% end %>
   <div id='map'></div>
   
   
@@ -41,18 +39,12 @@
   
 <script>
     	var map = L.mapbox.map('map', 'rodmal.i94k0pon'),
-    	    geocoder = L.mapbox.geocoder('rodmal.i94k0pon')
-    	    
+          geocoder = L.mapbox.geocoder('rodmal.i94k0pon')
     	    geocoder.query('Atizapán de Zaragoza, Estado de México', showMap);    
 
     	var markerPuesto = false;
     	var marker;
     	
-    	map.addControl(L.control.locate({
-  		  locateOptions: {
-  		  	maxZoom: 20
-
-  		}}));
   	
   	function showMap(err, data){
   		map.fitBounds(data.lbounds);
@@ -90,11 +82,14 @@
   	});
   	
 </script>
-  <% @locations = Location.all %>
-  <% @locations.each do |location| %>
-    <script>
-      L.marker([<%= location.latitude %>,<%= location.longitude %>], {opacity: 0.5}).addTo(map);
-    </script>
-    <% end %>
+ <% if params[:searchTerm]%>
+  <% @searchResult = Location.where("hashtag like :searchTerm", {:searchTerm => "%#" + params[:searchTerm] + "%"})%>
+  <% @searchResult.each do |location| %>
+
+  <script>
+    L.marker([<%= location.latitude %>,<%= location.longitude %>], {opacity: 0.5}).addTo(map);
+  </script>
+  <% end %>
+<% end %>
   
 </div>
