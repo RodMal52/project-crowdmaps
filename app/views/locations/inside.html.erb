@@ -87,7 +87,7 @@
   <% @searchResult.each do |location| %>
 
   <script>
-    L.marker([<%= location.latitude %>,<%= location.longitude %>], {opacity: 0.5}).addTo(map);
+    L.marker([<%= location.latitude %>,<%= location.longitude %>], {opacity: 0.5}).addTo(map).bindPopup('<%= location.address %>');
   </script>
   <% end %>
 <% end %>
