@@ -1,16 +1,13 @@
-<style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
+<div class="row">
+  <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js'></script>
 
-<body>
-<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js'></script>
-<link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css' rel='stylesheet' />
-<!--[if lt IE 9]>
-  <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
-<![endif]-->
+  <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css' rel='stylesheet' />
 
-<style type="text/css">
+  <!--[if lt IE 9]>
+    <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
+  <![endif]-->
+
+  <style type="text/css">
     .leaflet-control-locate {
         border: 1px solid rgba(0,0,0,0.4);
     }
@@ -23,73 +20,78 @@
     .leaflet-control-locate.active a {
         background-position: -33px -2px;
     }
-</style>
+  </style>
 
-  <div id='map' style = 'height:600px'></div>
-  
+  <div id='map'></div>
   
   <%= form_for @location,:html => {:id => "idFormLocation"} do |f| %>
+
     <%= f.hidden_field :address, :id => "address"  %>
     <%= f.hidden_field :latitude , :id => "idLat" %>
     <%= f.hidden_field :longitude, :id => "idLng" %>
-<% end %>
   
+  <% end %>
   
-<script>
-    	var map = L.mapbox.map('map', 'examples.map-vyofok3q'),
-    	    geocoder = L.mapbox.geocoder('examples.map-vyofok3q')
+  <script>
+    var map = L.mapbox.map('map', 'rodmal.i94k0pon'),
+      geocoder = L.mapbox.geocoder('rodmal.i94k0pon')
     	    
-    	    geocoder.query('Atizapán de Zaragoza, Estado de México', showMap);    
+      geocoder.query('Atizapán de Zaragoza, Estado de México', showMap);    
 
-    	var markerPuesto = false;
-    	var marker;
+    var markerPuesto = false;
+    var marker;
     	
-    	map.addControl(L.control.locate({
-  		  locateOptions: {
-  		  	maxZoom: 20
-
-  		}}));
+    map.addControl(L.control.locate({
+  		  
+      locateOptions: {
+        maxZoom: 20
+      
+    }}));
   	
-  	function showMap(err, data){
-  		map.fitBounds(data.lbounds);
-  	}
-  	
-  	/*function onMapClick(e) {
-  		//alert("You clicked the map at " + e.latlng);
-  		L.marker(e.latlng).addTo(map);       
-  	}*/
-
-  	function onMapClick(e) {
-  		if(!markerPuesto){
-  			markerPuesto = true;
-  			marker = L.marker(e.latlng, {draggable: true}).addTo(map);
-        
-        marker.bindPopup('<textarea id="textMarker" rows="4" cols="50"></textarea><button id="reportButton">Reportar</button>').openPopup();
-  		}
-  	}
-  	
-  	
-
-  	map.on('click', onMapClick);
-  	
-  $('#map').on('click', '#reportButton', function(){
-    //alert("Longitud: " + marker.getLatLng().lat + "\nLongitud: " + marker.getLatLng().lng);
-    $("#idLat").val(marker.getLatLng().lat);
-    $("#idLng").val(marker.getLatLng().lng);
-    $("#address").val($('#textMarker').val());
+    function showMap(err, data){
+  	  
+      map.fitBounds(data.lbounds);
     
-    $('#idFormLocation').submit();
-      
-      
-  	});
+    }
   	
-</script>
+    /*function onMapClick(e) {
+      //alert("You clicked the map at " + e.latlng);
+      L.marker(e.latlng).addTo(map);       
+    }*/
+
+    function onMapClick(e) {
+  	  
+      if(!markerPuesto){
+        markerPuesto = true;
+        marker = L.marker(e.latlng, {draggable: true}).addTo(map);
+        
+        marker.bindPopup('<center><textarea id="textMarker" rows="4" cols="35"></textarea><p></p><button id="reportButton" class="btn btn-primary">Reportar</button></center>').openPopup();
+      }
+    
+    }
+  	
+    map.on('click', onMapClick);
+  	
+    $('#map').on('click', '#reportButton', function(){
+    
+      //alert("Longitud: " + marker.getLatLng().lat + "\nLongitud: " + marker.getLatLng().lng);
+      $("#idLat").val(marker.getLatLng().lat);
+      $("#idLng").val(marker.getLatLng().lng);
+      $("#address").val($('#textMarker').val());
+    
+      $('#idFormLocation').submit();
+          
+    });
+  	
+  </script>
+
   <% @locations = Location.all %>
   <% @locations.each do |location| %>
+
     <script>
       L.marker([<%= location.latitude %>,<%= location.longitude %>], {opacity: 0.5}).addTo(map);
     </script>
-    <% end %>
   
+  <% end %>
   
-</body>
+</div>
