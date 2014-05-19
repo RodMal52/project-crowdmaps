@@ -1,4 +1,7 @@
 class LocationsController < ApplicationController
+ include Twitter::Extractor
+
+
   def index
   if params[:search].present?
     @locations = Location.near(params[:search], 50, :order => :distance)
@@ -8,6 +11,7 @@ class LocationsController < ApplicationController
 end
 
   def show
+   
     @location = Location.find(params[:id])
     
   end
@@ -23,8 +27,12 @@ end
   end
 
   def create
+    
     @location = Location.new(location_params)
+    
     if @location.save
+      @location.hashtag = @location.hashtags.first.name
+      @location.save
       redirect_to @location, :notice => "Successfully created location."
     else
       render :action => 'new'
@@ -51,7 +59,7 @@ end
   end
     
     def location_params
-         params[:location].permit(:address, :latitude, :longitude)
+         params[:location].permit(:address, :latitude, :longitude, :hashtag)
     end 
     
     

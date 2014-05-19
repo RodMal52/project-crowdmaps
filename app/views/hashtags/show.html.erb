@@ -1,19 +1,4 @@
-<% title "Locations" %>
-
-<h1>Locations <small>Admin</small></h1>
-<p><%= link_to "Back to Admin", admin_root_path %></p>
-
-<div class="text-center">
-
-</div>
-
-<%= form_tag locations_path, method: 'get', html: {role: "form"} do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :address => nil, class: "btn btn-sm btn-primary" %>
-    <%= link_to "All", locations_path, {class: "btn btn-sm btn-link"} %>
-  </p>
-<% end %>
+<h1><%= params[:hashtag] %></h1>
 
 <table class="table table-striped">
   <tr>
@@ -27,7 +12,7 @@
     <th></th>
   </tr>
   
-  <% @locations.each do |location| %>
+  <% Location.where(hashtag: 'hueva').all.each do |location| %>
   
   <tr>
     <td><%= location.id %></td>
@@ -35,21 +20,10 @@
     <td><%= location.latitude %></td>
     <td><%= location.longitude %></td>
     <td><%= location.hashtag %></td>
-   
-     
-  
     <td><%= link_to "Show", location %></td>
     <td><%= link_to "Edit", edit_location_path(location) %></td>
     <td><%= link_to "Destroy", location, :confirm => 'Are you sure?', :method => :delete %></td>
     
   </tr>
-  
   <% end %>
-  
-</table>
-
-<p><%= link_to "New Location", new_location_path %></p>
-
-<div class="text-center">
-  
-</div>
+ 

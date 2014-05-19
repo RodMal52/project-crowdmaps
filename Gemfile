@@ -3,6 +3,9 @@ ruby '2.1.1'
 gem 'rails', '4.0.2'
 gem 'nifty-generators'
 gem 'geocoder'
+gem "twitter-text"
+gem 'simple_hashtag'
+
 gem 'sass-rails', '~> 4.0.1'
 gem 'uglifier', '~> 2.4.0'
 gem 'coffee-rails', '~> 4.0.1'

@@ -1,6 +1,7 @@
 class Location < ActiveRecord::Base
     geocoded_by :address
-    
+     include SimpleHashtag::Hashtaggable
+     hashtaggable_attribute :address
   
 
   def self.paged(page_number)

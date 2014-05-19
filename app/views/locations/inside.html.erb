@@ -30,14 +30,15 @@
   
   <%= form_for @location,:html => {:id => "idFormLocation"} do |f| %>
     <%= f.hidden_field :address, :id => "address"  %>
+    <%= f.hidden_field :hashtag, :id => "hashtag" %>
     <%= f.hidden_field :latitude , :id => "idLat" %>
     <%= f.hidden_field :longitude, :id => "idLng" %>
 <% end %>
   
   
 <script>
-    	var map = L.mapbox.map('map', 'examples.map-vyofok3q'),
-    	    geocoder = L.mapbox.geocoder('examples.map-vyofok3q')
+    	var map = L.mapbox.map('map', 'rodmal.i94k0pon'),
+    	    geocoder = L.mapbox.geocoder('rodmal.i94k0pon')
     	    
     	    geocoder.query('Atizapán de Zaragoza, Estado de México', showMap);    
 

@@ -2,6 +2,7 @@ class CreateLocations < ActiveRecord::Migration
   def self.up
     create_table :locations do |t|
       t.string :address
+      t.string :hashtag
       t.float :latitude
       t.float :longitude
       t.timestamps
